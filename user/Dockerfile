@@ -1,6 +1,6 @@
 FROM golang:1.12
 
-ENV PKG_PATH /go/src/github.com/vvatanabe/go-grpc-microservices
+ENV PKG_PATH /go/src/github.com/vuonghp92/grpc-mcro-demo
 ENV SERVICE_PATH $PKG_PATH/user
 ENV GO111MODULE on
 WORKDIR $PKG_PATH
