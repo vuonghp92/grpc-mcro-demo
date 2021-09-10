@@ -5,8 +5,8 @@ import (
 
 	"sort"
 
-	pbTask "github.com/vvatanabe/go-grpc-microservices/proto/task"
-	"github.com/vvatanabe/go-grpc-microservices/shared/inmemory"
+	pbTask "github.com/vuonghp92/grpc-mcro-demo/proto/task"
+	"github.com/vuonghp92/grpc-mcro-demo/shared/inmemory"
 )
 
 type Store interface {

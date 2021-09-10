@@ -12,7 +12,7 @@ import (
 	any "github.com/golang/protobuf/ptypes/any"
 	empty "github.com/golang/protobuf/ptypes/empty"
 	timestamp "github.com/golang/protobuf/ptypes/timestamp"
-	task "github.com/vvatanabe/go-grpc-microservices/proto/task"
+	task "github.com/vuonghp92/grpc-mcro-demo/proto/task"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"

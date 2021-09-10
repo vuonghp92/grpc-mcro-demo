@@ -3,8 +3,8 @@ package interceptor
 import (
 	"context"
 
-	"github.com/vvatanabe/go-grpc-microservices/front/support"
-	"github.com/vvatanabe/go-grpc-microservices/shared/md"
+	"github.com/vuonghp92/grpc-mcro-demo/front/support"
+	"github.com/vuonghp92/grpc-mcro-demo/shared/md"
 	"google.golang.org/grpc"
 )
 

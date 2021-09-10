@@ -3,7 +3,7 @@ package support
 import (
 	"context"
 
-	pbUser "github.com/vvatanabe/go-grpc-microservices/proto/user"
+	pbUser "github.com/vuonghp92/grpc-mcro-demo/proto/user"
 )
 
 type contextKeyTraceID struct{}

@@ -10,9 +10,9 @@ import (
 	"time"
 
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
-	pbActivity "github.com/vvatanabe/go-grpc-microservices/proto/activity"
-	pbProject "github.com/vvatanabe/go-grpc-microservices/proto/project"
-	"github.com/vvatanabe/go-grpc-microservices/shared/interceptor"
+	pbActivity "github.com/vuonghp92/grpc-mcro-demo/proto/activity"
+	pbProject "github.com/vuonghp92/grpc-mcro-demo/proto/project"
+	"github.com/vuonghp92/grpc-mcro-demo/shared/interceptor"
 	"google.golang.org/grpc"
 )
 

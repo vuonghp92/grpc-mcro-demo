@@ -1,4 +1,6 @@
-module github.com/vvatanabe/go-grpc-microservices
+module vuonghp92/grpc-mcro-demo/go-grpc-microservices
+
+go 1.14
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect

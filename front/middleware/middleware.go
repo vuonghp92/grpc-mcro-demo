@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/rs/xid"
-	"github.com/vvatanabe/go-grpc-microservices/front/session"
-	"github.com/vvatanabe/go-grpc-microservices/front/support"
-	pbUser "github.com/vvatanabe/go-grpc-microservices/proto/user"
+	"github.com/vuonghp92/grpc-mcro-demo/front/session"
+	"github.com/vuonghp92/grpc-mcro-demo/front/support"
+	pbUser "github.com/vuonghp92/grpc-mcro-demo/proto/user"
 )
 
 const (

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package user;
 
-option go_package = "github.com/vvatanabe/go-grpc-microservices/proto/user";
+option go_package = "github.com/vuonghp92/grpc-mcro-demo/proto/user";
 
 import "google/protobuf/timestamp.proto";
 

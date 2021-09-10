@@ -5,10 +5,10 @@ import (
 
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/empty"
-	pbActivity "github.com/vvatanabe/go-grpc-microservices/proto/activity"
-	pbProject "github.com/vvatanabe/go-grpc-microservices/proto/project"
-	pbTask "github.com/vvatanabe/go-grpc-microservices/proto/task"
-	"github.com/vvatanabe/go-grpc-microservices/shared/md"
+	pbActivity "github.com/vuonghp92/grpc-mcro-demo/proto/activity"
+	pbProject "github.com/vuonghp92/grpc-mcro-demo/proto/project"
+	pbTask "github.com/vuonghp92/grpc-mcro-demo/proto/task"
+	"github.com/vuonghp92/grpc-mcro-demo/shared/md"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

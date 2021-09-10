@@ -11,8 +11,8 @@ import (
 	"log"
 
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
-	pbActivity "github.com/vvatanabe/go-grpc-microservices/proto/activity"
-	"github.com/vvatanabe/go-grpc-microservices/shared/interceptor"
+	pbActivity "github.com/vuonghp92/grpc-mcro-demo/proto/activity"
+	"github.com/vuonghp92/grpc-mcro-demo/shared/interceptor"
 	"google.golang.org/grpc"
 )
 

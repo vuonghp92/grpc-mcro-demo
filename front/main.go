@@ -8,14 +8,14 @@ import (
 
 	"github.com/gorilla/mux"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
-	"github.com/vvatanabe/go-grpc-microservices/front/handler"
-	"github.com/vvatanabe/go-grpc-microservices/front/interceptor"
-	"github.com/vvatanabe/go-grpc-microservices/front/middleware"
-	"github.com/vvatanabe/go-grpc-microservices/front/session"
-	pbActivity "github.com/vvatanabe/go-grpc-microservices/proto/activity"
-	pbProject "github.com/vvatanabe/go-grpc-microservices/proto/project"
-	pbTask "github.com/vvatanabe/go-grpc-microservices/proto/task"
-	pbUser "github.com/vvatanabe/go-grpc-microservices/proto/user"
+	"github.com/vuonghp92/grpc-mcro-demo/front/handler"
+	"github.com/vuonghp92/grpc-mcro-demo/front/interceptor"
+	"github.com/vuonghp92/grpc-mcro-demo/front/middleware"
+	"github.com/vuonghp92/grpc-mcro-demo/front/session"
+	pbActivity "github.com/vuonghp92/grpc-mcro-demo/proto/activity"
+	pbProject "github.com/vuonghp92/grpc-mcro-demo/proto/project"
+	pbTask "github.com/vuonghp92/grpc-mcro-demo/proto/task"
+	pbUser "github.com/vuonghp92/grpc-mcro-demo/proto/user"
 	"google.golang.org/grpc"
 )
 
