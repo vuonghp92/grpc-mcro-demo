@@ -8,6 +8,7 @@ import (
 
 	"github.com/gorilla/mux"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	"github.com/joho/godotenv"
 	"github.com/vuonghp92/grpc-mcro-demo/front/handler"
 	"github.com/vuonghp92/grpc-mcro-demo/front/interceptor"
 	"github.com/vuonghp92/grpc-mcro-demo/front/middleware"
@@ -22,7 +23,7 @@ import (
 const port = ":8080"
 
 func main() {
-	// 各マイクロサービスのクライアントスタブの生成
+	godotenv.Load()
 	activityClient := pbActivity.
 		NewActivityServiceClient(getGRPCConn(
 			os.Getenv("ACTIVITY_SERVICE_ADDR"),
@@ -51,14 +52,10 @@ func main() {
 		SessionStore:   sessionStore,
 	}
 	r := mux.NewRouter()
-	// ミドルウェアを使ってハンドラ共通の処理の追加
 	r.Use(middleware.Tracing)
 	r.Use(middleware.Logging)
 	auth := middleware.
 		NewAuthentication(userClient, sessionStore)
-	// エンドポイントとメソッドのマッピング
-	// （認証が必要なエンドポイントには
-	// 認証チェック用のミドルウェアを追加）
 	r.Path("/").Methods(http.MethodGet).
 		HandlerFunc(auth(frontSrv.ViewHome))
 	r.Path("/logout").Methods(http.MethodPost).
@@ -94,7 +91,6 @@ func main() {
 func getGRPCConn(target string,
 	interceptors ...grpc.UnaryClientInterceptor,
 ) *grpc.ClientConn {
-	// インタセプタを使ってRPC共通の処理の追加
 	chain := grpc_middleware.
 		ChainUnaryClient(interceptors...)
 	conn, err := grpc.Dial(target,

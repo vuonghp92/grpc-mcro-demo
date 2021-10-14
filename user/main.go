@@ -10,15 +10,17 @@ import (
 	"time"
 
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	"github.com/joho/godotenv"
 	pbProject "github.com/vuonghp92/grpc-mcro-demo/proto/project"
 	pbUser "github.com/vuonghp92/grpc-mcro-demo/proto/user"
 	"github.com/vuonghp92/grpc-mcro-demo/shared/interceptor"
 	"google.golang.org/grpc"
 )
 
-const port = ":50051"
+const port = ":50061"
 
 func main() {
+	godotenv.Load()
 	projectConn, err := grpc.Dial(os.Getenv("PROJECT_SERVICE_ADDR"), grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("failed to dial project service: %s", err)

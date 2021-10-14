@@ -44,6 +44,7 @@ const metadataKeyTraceID string = "x-trace-id"
 
 func GetTraceIDFromContext(ctx context.Context) string {
 	md, ok := metadata.FromIncomingContext(ctx)
+
 	if !ok {
 		return ""
 	}

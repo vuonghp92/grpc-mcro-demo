@@ -11,14 +11,16 @@ import (
 	"log"
 
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	"github.com/joho/godotenv"
 	pbActivity "github.com/vuonghp92/grpc-mcro-demo/proto/activity"
 	"github.com/vuonghp92/grpc-mcro-demo/shared/interceptor"
 	"google.golang.org/grpc"
 )
 
-const port = ":50051"
+const port = ":50064"
 
 func main() {
+	godotenv.Load()
 	srv := grpc.NewServer(grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer(
 		interceptor.XTraceID(),
 		interceptor.Logging(),

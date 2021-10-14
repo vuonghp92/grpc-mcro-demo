@@ -21,6 +21,7 @@ func Tracing(next http.Handler) http.Handler {
 		traceID := r.Header.Get(xRequestIDKey)
 		if traceID == "" {
 			traceID = newTraceID()
+
 		}
 		ctx := support.AddTraceIDToContext(
 			r.Context(),

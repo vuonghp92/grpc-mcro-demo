@@ -14,6 +14,7 @@ import (
 	"syscall"
 
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	"github.com/joho/godotenv"
 	pbActivity "github.com/vuonghp92/grpc-mcro-demo/proto/activity"
 	pbProject "github.com/vuonghp92/grpc-mcro-demo/proto/project"
 	pbTask "github.com/vuonghp92/grpc-mcro-demo/proto/task"
@@ -21,10 +22,10 @@ import (
 	"google.golang.org/grpc"
 )
 
-const port = ":50051"
+const port = ":50062"
 
 func main() {
-	// クライアントスタブの生成
+	godotenv.Load()
 	activityConn, err := grpc.Dial(
 		os.Getenv("ACTIVITY_SERVICE_ADDR"),
 		grpc.WithInsecure())
@@ -39,7 +40,6 @@ func main() {
 		log.Fatalf("failed to dial task: %s",
 			err)
 	}
-	// インタセプタの追加
 	chain := grpc_middleware.ChainUnaryServer(
 		interceptor.XTraceID(),
 		interceptor.Logging(),
@@ -47,7 +47,6 @@ func main() {
 	)
 	srvOpt := grpc.UnaryInterceptor(chain)
 	srv := grpc.NewServer(srvOpt)
-	// サービスの登録
 	pbTask.RegisterTaskServiceServer(srv, &TaskService{
 		store: NewStoreOnMemory(),
 		activityClient: pbActivity.
@@ -55,7 +54,6 @@ func main() {
 		projectClient: pbProject.
 			NewProjectServiceClient(projectConn),
 	})
-	// gRPC接続の待ち受け
 	go func() {
 		listener, err := net.Listen("tcp", port)
 		if err != nil {
@@ -67,7 +65,6 @@ func main() {
 			log.Println("failed to exit serve: ", err)
 		}
 	}()
-	// グレースフルストップ
 	sigint := make(chan os.Signal, 1)
 	signal.Notify(sigint, syscall.SIGTERM)
 	<-sigint

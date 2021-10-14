@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/empty"
@@ -54,16 +55,17 @@ func (s *TaskService) CreateTask(
 		return nil, status.Error(
 			codes.InvalidArgument, err.Error())
 	}
-	// アクティビティの内容をAny型に変換する
+
 	content := &pbActivity.CreateTaskContent{
 		TaskId:   task.GetId(),
 		TaskName: task.GetName()}
 	any, err := ptypes.MarshalAny(content)
+	fmt.Println("------xxx", any)
 	if err != nil {
 		return nil, status.Error(
 			codes.InvalidArgument, err.Error())
 	}
-	// ActivityServiceのクライアントスタブでアクティビティを作成する
+
 	if _, err := s.activityClient.CreateActivity(ctx,
 		&pbActivity.CreateActivityRequest{
 			Content: any,
